@@ -1,0 +1,110 @@
+About GNOME
+
+Last update: 3/31/2016
+
+GNOME is a desktop environment that is composed entirely of free and
+open-source software. GNOME was originally an acronym for GNU Network Object
+Model Environment. Its target operating system is Linux, but it is also
+supported on most derivatives of BSD.
+
+GTK+
+GTK+ is a cross-platform widget toolkit for creating graphical user interfaces.
+It is one of the most popular toolkits for the Wayland and X11 windowing
+systems, along with Qt.
+
+Software architecture
+The GTK+ library contains a set of graphical control elements (widgets).
+GTK+ is an object-oriented widget toolkit written in the C programming language.
+While GTK+ is primarily targeted at windowing systems based upon X11 and
+Wayland, it works on other platforms, including Microsoft Windows and Mac OS X.
+There is also an HTML5 back-end called Broadway.
+
+GTK+ can be configured to change the look of the widgets drawn; this is done
+using different display engines. Several display engines exist which try to
+emulate the look of the native widgets on the platform in use.
+
+Starting with version 2.8, released in 2005, GTK+ began the transition to using
+Cairo to render the majority of its graphical control elements.
+
+
+GTK+ input system
+The GTK+ input system is basically the X input system. To handle anything more
+complicated than a simple mouse button press, e.g. a double click or a long
+button press, the developer is required to track time and add a time out
+somewhere.
+
+
+Language bindings
+A library written in one programming language may be used in another language
+if bindings are written; GTK+ has a range of bindings for various languages.
+Link: https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK%2B
+
+
+Desktop environments
+Several desktop environments utilize GTK+ as the widget toolkit:
+    Access Linux Platform
+    Cinnamon (software)
+    GNOME
+    GPE
+    LXDE
+    MATE (software)
+    Pantheon (desktop environment)
+    ROX Desktop
+    Sugar (software)
+    XFast
+    Xfce
+
+
+Using GNOME Core Libraries
+GNOME core libraries are a collection of foundation utility classes
+and functions. It covers many things from simple date-conversion functions
+to virtual filesystem access management. GNOME would not be as powerful
+as it is now without its core libraries. There are a lot of UI libraries
+out there that are not successful because of the lack of this kind of power.
+No wonder there are many libraries outside GNOME that also use GNOME core
+libraries to support their functionalities.
+
+GNOME core libraries are composed from GLib and GIO, which are non-UI libraries
+for supporting our UI applications. These libraries connect our programs with
+files, networks, timers, and other important aspects in the operating system.
+Without this knowledge, we can probably make a beautiful program, but we
+would be incapable of interacting with the rest of the system.
+
+GLib
+GLib provides a main event loop, which takes care of the events coming from
+various sources. With this event loop, we can catch these events and do
+the necessary processing.
+
+GObject signals
+GObject provides a signaling mechanism that we can hook into. The Vala
+signaling system internally, is actually using the GObject signaling system,
+but it is so transparent that it is seamlessly integrated into the language
+itself.
+
+GLib properties
+Properties are key-value pairs in a storage system that are available in all
+instances of GObject, which is the base class for all objects in the GNOME
+system. One useful feature of properties is that we can subscribe for changes
+when the value is changed.
+
+
+Configuration files
+In many cases we need to somehow read from a configuration file in order to
+customize how our program should behave. Here, we will learn how to use
+the simplest configuration mechanism in GLib using a configuration file.
+Imagine that we have a configuration file and it contains the name and
+version of our application so that we print it somewhere inside our program.
+
+
+GIO, the input/output library
+In real life, our program must be able to access files wherever they are stored
+locally or remotely. Imagine that we have a set of files that we need to read.
+The files are spread both locally and remotely. GIO will make it easy for us to
+manipulate these files as it provides an API to interact with our files in
+an abstract way.
+
+
+Referenced sources:
+1. GNOME at Wikipedia.org
+2. GTK+  at Wikipedia.org
+3. GNOME 3 Application Development Beginner's Guide, by Mohammad Anwari 2/2013

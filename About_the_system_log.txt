@@ -1,0 +1,69 @@
+About the system log
+
+Analyzing the System Log
+Last update:
+
+Search for events with journalctl
+The systemd journal stores logging data in a structured, indexed binary file.
+In RHEL7, the systemd journal is stored in /run/log by default, and its contents are cleared after a reboot. This setting can be changed by the system administrator.
+The journalctl command shows the full system journal, starting with the oldest log entry, when run as root user.
+
+Task and command
+Show the last 10 entries of the journal.
+journalctl -n
+
+Show the last 5 entries of the journal.
+journalctl -n 5
+
+Show the last 10 lines of the journal and continue to output new journal entries as they get written to the journal.
+journalctl -f
+
+Show events in specific time frame.
+Show all journal entries that got recorded today
+journalctl --since today
+
+Show the journal entries from 29th March 2016 10:00 to 30th March 2016 17:00
+journalctl --since "2016-03-29 10:00:00" --until "2016-03-30 17:00:00"
+
+Show the events that originate from the systemd process that always runs with process id 1.
+journalctl _PID=1
+
+Show the journal messages with priority warning and above.
+journalctl -p warning
+
+Show the journal messages with priority error and above.
+journalctl -p err
+List of priorities:
+debug (7), info (6), notice (5), warning (4), err (3), crit (2), alert (1), and emerg (0)
+
+Show all log events recorded in the previous 10 minutes. The command assumes a current time of 9:15.
+journalctl --since 9:05:00 --until 9:15:00
+
+Show only the events originating from the sshd service with the system unit file sshd.service.
+journalctl _SYSTEMD_UNIT="sshd.service"
+
+
+By default, the systemd journal is kept in /run/log/journal, which means it is cleared when the system reboots. The journal is a new mechanism in Red Hat Enterprise Linux 7, and for most installations, a detailed journal that starts with the last boot is sufficient.
+If the directory /var/log/journal exists, the journal will log to that directory instead. The advantage of this is the historic data will be available immediately at boot. However, even with a persistent journal, not all data will be kept forever. The journal has a built-in log rotation mechanism that will trigger monthly. In addition, by default, the journal will not be allowed to get larger than 10% of the file system it is on, or leave less than 15% of the file system free. These values can be tuned in /etc/systemd/journald.conf, and the current limits on the size of the journal are logged when the systemd-journald process starts, as can be seen by the following command, which shows the top two lines of journalctl output:
+journalctl | head -2
+
+Store the system journal permanently. Make the systemd journal persistent by creating the directory /var/log/journal as user root.
+mkdir -p /var/log/journal
+
+Restart journald to apply the change.
+systemctl restart systemd-journald
+
+Ensure that the /var/log/journal directory is owned by the root user and group systemd-journal, and has the permissions 2755.
+chown root:systemd-journal /var/log/journalctl
+chmod 2755 /var/log/journal
+
+Show the log messages since the last boot of the system.
+journalctl -b
+
+Show the log since the previous boot. When debugging a system crash with a persistent journal, it is usually required to limit the journal query to the reboot before the crash happened.
+journalctl -b -1 (a negative number)
+
+
+Referenced sources:
+1. Red Hat System Administration I - course materials
+2. Red Hat Enterprise Linux 7 - System Administrator's Guide

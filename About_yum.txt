@@ -1,0 +1,131 @@
+Using YUM in RHEL7
+
+Last update: 4/13/2016
+
+0. BEFORE INSTALLATION
+List repositories, packages, and package groups that the system is currently able to use.
+yum repolist
+
+List detailed information about repositories.
+yum repolist -v
+or
+yum repoinfo
+
+List both enabled and disabled repositories.
+yum repolist all
+
+Add/remove repositories, by adding/removing repo files in the directory:
+/etc/yum.repos.d
+What structure should the repo file have?
+
+Display installed and available packages.
+yum list all
+
+List installed and available packages that match inserted glob expressions.
+yum list glob_expression
+Example
+yum list vpn*
+yum list http*
+yum list krb?-*
+
+Display information about one or more packages.
+yum info package_name
+
+
+Check if any updates are available.
+yum check-update
+
+1. SEARCHING FOR PACKAGES
+Search for packages by keywords found in the name and summary fields only.
+yum search KEYWORD
+
+Search for packages that have 'web server' in their name, summary, and description fields.
+yum search all 'web server'
+
+List detailed information about a package, including the disk space needed for installation.
+yum info PACKAGE_NAME
+
+Display packages that match the path name specified (which often include wild card characters).
+yum provides PATH_NAME
+Examples:
+yum provides httpd
+yum provides firewalld
+yum provides postfix
+
+List all installed and available kernels.
+yum list kernels
+
+Show the names of installed and available groups. Some groups are normally installed through environment.
+yum group list
+Some groups are normally installed through environment groups and are hidden by default. These hidden groups can also be listed.
+yum group list hidden
+
+
+2. INSTALLING PACKAGES
+Obtain and install a software package, including any dependencies.
+yum install PACKAGE_NAME
+yum install package1 [package2] ... [packageN]
+
+Obtain and install a newer version of the software package, including any dependencies.
+yum update PACKAGE_NAME
+Install the new kernel.
+yum update kernel
+
+Update packages that have security updates only, when logged as root.
+yum update --security
+
+Update a package group when logged as root.
+yum group update GROUP_NAME
+
+Install a group which will install its mandatory and default packages and the packages they depend on.
+yum group install
+
+3. AFTER INSTALLATION
+yum list installed glob_expression
+
+View summary of install and remove transactions when logged as root.
+yum history
+
+View transaction history when logged as root.
+view /var/log/yum.log
+
+Describe a transaction in YUM
+Display only transactions in a given range.
+yum history list <start_id>..<end_id>
+yum history list 53..62
+
+List only transactions regarding a particular package or packages using glob expression.
+yum history list <glob_expression>
+
+Display a summary of all past transactions when logged as root.
+yum history summary
+
+Display only transactions in a given range.
+yum history summary <start_id>..<end_id>
+
+Display a summary of transactions regarding a certain package(s) that matches a glob expression.
+yum history summary <glob_expression>
+
+Examine a particular transaction or transactions in more detail, when logged as root.
+yum history info <transaction_id>
+yum history info 63
+
+Examine transactions a range.
+yum history info <start_id>..<end_id>
+yum history info 60..63
+
+4. UNINSTALLING PACKAGES
+Remove an installed software package, including any supported packages.
+yum remove PACKAGE_NAME
+This command can harm your system, read carefully the list of dependent packages that will be uninstalled.
+
+Undo an install/remove transaction.
+yum history undo <transaction ID>
+
+PURPOSE
+COMMAND
+
+More info here:
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/ch-yum.html
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Working_with_Packages.html
+

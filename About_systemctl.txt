@@ -1,0 +1,81 @@
+About systemctl
+
+Managing Linux services
+Last update: 4/4/2016
+
+Show the state of all units to verify a system startup.
+systemctl
+
+Show the state of only service units.
+systemctl --type=service
+
+Show the service tree.
+systemctl status --type=service
+
+Show the status of a service.
+systemctl status <service name>
+
+Determine if a unit is active and show if the unit is enabled at boot time.
+systemctl is-active <service name>
+systemctl is-enabled <service name>
+
+List the active state of all loaded units.
+systemctl list-units --type=service
+
+View the enabled and disabled settings for all units.
+systemctl list-unit-files --type=service
+
+View only failed services.
+systemctl --failed --type=service
+
+List all socket units, active and inactive, on the system.
+systemctl list-units --type=socket --all
+
+Determine if a service is enabled to start at system boot.
+systemctl is-enabled <service name>
+
+Determine if a service is active without displaying all of the status information.
+systemctl is-active <service name>
+
+Show the enabled or disabled states of all service units.
+systemctl list-unit-files --type=service
+
+Start a service.
+systemctl start <service name>
+
+Stop a service.
+systemctl stop <service name>
+
+Restart a service.
+systemctl restart <service name>
+
+Read and reload the configuration file of service without a complete stop and start. The process ID will not change.
+systemctl reload <service name>
+
+Unit dependencies
+Services may be started as dependencies of other services. If a socket unit is enabled and the service unit with the same name is not, the service will automatically be started when a request is made on the network socket. Services may also be triggered by path units when a file system condition is met. For example, a file placed into the print spool directory will cause the cups print service to be started if it is not running.
+systemctl stop cups.service
+Warning: Stopping cups, but it can still be activated by:
+  cups.path
+  cups.socket
+
+To completely stop printing services on a system, stop all three units. Disabling the service will disable the dependencies.
+
+Show a tree of what other units must be started if the specified unit is started. Depending on the exact dependency, the other unit may need to be running before or after the specified unit starts. The --reverse option to this command will show what units need to have the specified unit started in order to run.
+systemctl list-dependencies <service name>
+
+
+The --reverse option to this command will show what units need to have the specified unit started in order to run.
+
+systemctl list-dependencies <service name> --reverse
+
+Disable a service.
+systemctl disable <service name>
+
+Enable a service.
+systemctl enable <service name>
+
+Referenced sources
+1. Red Hat System Administration I - course materials
+2. Red Hat Enterprise Linux 7 - System Administrator's Guide
+
