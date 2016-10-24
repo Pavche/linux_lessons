@@ -1,0 +1,12 @@
+Questions about RHCSA to study
+
+Which command is required to start custom scripts at boot time?
+
+Which of these commands creates a logical volume of 2GB?
+ # lvcreate --name lv_vol -L 2G vgroot
+
+Which directory is used to store the configuration of the main services?
+    /usr/lib/systemd/system
+
+How to configure a virtual host on Apache web server?
+
