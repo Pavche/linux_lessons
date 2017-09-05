@@ -1,0 +1,15 @@
+Red Hat Enterprise Linux Diagnostics and Troubleshooting (RH342R) Online
+
+    Your enrollment has been recorded. Click Provide Red Hat Customer Portal Username (RHN ID) (in the section below) to search for and submit your username. Red Hat University will use your Red Hat Customer Portal username to provide you with access to all Red Hat Online Learning courses through the Red Hat Learning Subscription. If you have added this information to your profile in the past year, you do not need to do so again.
+
+    Please note: If you do not provide your Red Hat Customer Portal username, it will delay our ability to provide you access to Red Hat Online Learning content.
+
+    If you have any questions or concerns, click Help in the main menu (above).
+    PROVIDE RED HAT CUSTOMER PORTAL USERNAME (ACTION REQUIRED)
+
+    In order to create your access to all Red Hat Online Learning content, Red Hat University must first obtain your Red Hat Customer Portal username (RHN ID). Click Provide Red Hat Customer Portal Username (RHN ID) below to find, review, and submit your username. If you have reviewed your RHN ID in the past year, you do not need to do so again; your access will be created based on the ID in your profile.
+        Provide Red Hat Customer Portal Username (RHN ID) Page
+    COMPLETION TRACKING
+
+    Once you successfully complete the final lab of this course in Red Hat Online Learning, please click Submit Course Completion below to record your course completion. This will ensure your learner records are updated and if you are in the Sales organization’s continuing education program, you will receive the credits associated with completing this course.
+        Submit course completion
