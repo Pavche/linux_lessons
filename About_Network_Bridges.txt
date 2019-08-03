@@ -1,0 +1,44 @@
+NetworkManaqer can only attach Ethernet interfaces to a bridge. It does not support
+aggregate interlaces, such as a learned or bonded interface.
+
+Note that a bridge cannot be established over Wi-Fi networks operating in Ad-Hoc or Infrastructure
+modes. This is due to the IEEE 802.11 standard that specifies the use of 3-address frames in Wi-Fi for
+the efficient use of airtime.
+
+When creating a bridge, if no interface name is specified, the name will default to bridge, bridge-1, bridge-2, and so on.
+
+Warning
+If you are configuring bridging on a remote host, and you are connected to that host over the physical NIC you are configuring, the connectivity maybe be lost.
+
+To implement a software bridge on an existing teamed or bonded network interface
+managed by NetworkManager, NetworkManager will have to be disabled since it only
+supports bridges on simple Ethernet interfaces. Configuration files for the bridge will
+have to be created by hand. The if up and if down utilities can be used to manage the
+software bridge and other network interfaces.
+
+When starting a bridge interface, NetworkManager waits for at least one port to enter the
+"forwarding" state before beginning any network-dependent IP configuration such as DHCP or
+IPv6 autoconfiguration. Static IP addressing is allowed to proceed before any slaves or ports are
+connected or begin forwarding packets.
+
+Spanning tree protocol (STP) is enabled by default. The values used are from the IEEE 802.1D -1998
+standard.
+The default bridge priority for 802.1D STP is 32768.
+The allowed values are in the range 0 to 65535.
+
+What parameters does nm-connection-editor accept?
+Page tab "Bridge"
+    Connection name: string
+    Interface name: string
+    Slave interfaces: List of existing devices
+    Aging time: [0..unlimited) s
+    IGMP snooping: [on/off]
+    STP: [on/off]
+    Bridge priority: [0..65536]
+    FWD delay: [2..30] sec
+    Hello time: [1..10] sec
+    Max age: [6..40] sec
+
+# Referenced sources:
+# RH254-RHEL-en-2-20150427 training material
+# RHEL7 Networking Guide

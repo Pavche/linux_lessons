@@ -1,0 +1,42 @@
+Jakym zpusobem gnome-control-center navazuje VPN pripojeni?
+Jaky podprogram pouziva?
+
+
+Ktera aplikace je Libreswan klient? Jak poznam, ze ten funguje?
+Jakym je nazev jeho procesu, ktery by nasel prikazem "ps ax"?
+/usr/libexec/ipsec/pluto --config /etc/ipsec.conf
+
+
+
+Ktera aplikace je pro Racoon VPN server?
+Jak poznam, ze bezi?
+#  ps ax | grep racoon
+ 4040 ?        Ss     0:00 racoon
+ 4992 pts/1    S+     0:00 grep --color=auto racoon
+26326 ?        S      0:00 dnsmasq --pid-file=/tmp/racoon_dnsmasq.pid --dhcp-range=172.31.70.2,172.31.70.40,2m --interface=racoon0 --bind-interfaces
+26397 ?        Ss     0:00 racoon -F
+
+Kde ma svuj log?
+Jaky ma debug rezim?
+
+Je port UDP 500 otevreny behem testu?
+Ano.
+
+# netstat -ulnp4
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name                             876/chronyd         
+udp        0      0 127.0.0.1:500           0.0.0.0:*                           30270/pluto         
+udp        0      0 10.43.134.55:500        0.0.0.0:*                           30270/pluto         
+udp        0      0 172.31.70.40:500        0.0.0.0:*                           30270/pluto         
+udp        0      0 127.0.0.1:4500          0.0.0.0:*                           30270/pluto         
+udp        0      0 10.43.134.55:4500       0.0.0.0:*                           30270/pluto         
+udp        0      0 172.31.70.40:4500       0.0.0.0:*                           30270/pluto         
+
+Behem testu:
+  - muzu pingat adresu Libreswan klienta?
+    Ano.
+
+  - muzu pingat adresu Racoon serveru?
+
+Jak probiha autentizace VPN klient - VPN server?
+Sniff? Wireshark? TCPdump?

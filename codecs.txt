@@ -1,0 +1,10 @@
+Installed Packages			Version					Repository
+faad2.x86_64                            1:2.7-8.el7              		@rpmfusion-free-updates
+faad2-libs.x86_64                       1:2.7-8.el7              		@rpmfusion-free-updates
+ffmpeg.x86_64                           2.8.14-1.el7             		@rpmfusion-free-updates
+ffmpeg-libs.x86_64                      2.8.14-1.el7             		@rpmfusion-free-updates
+libmpeg2.x86_64                         0.5.1-10.el7             		@rpmfusion-free-updates
+x264.x86_64                             0.148-11.20160614gita5e06b9.el7		@rpmfusion-free-updates
+x264-libs.x86_64                        0.148-11.20160614gita5e06b9.el7		@rpmfusion-free-updates
+x265-libs.x86_64                        1.9-4.el7                        	@rpmfusion-free-updates
+xvidcore.x86_64                         1.3.4-2.el7              		@rpmfusion-free-updates

@@ -1,0 +1,18 @@
+A close look at ALSA
+http://volkerschatz.com/noise/alsa.html
+
+Linux ALSA sound notes
+http://sabi.co.uk/Notes/linuxSoundALSA.html
+
+PCM (digital audio) plugins
+http://alsa-project.org/alsa-doc/alsa-lib/pcm_plugins.html
+
+PulseAudio/Troubleshooting
+https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting
+
+Audio debugging techniques
+http://voices.canonical.com/david.henningsson/2011/12/08/audio-debugging-techniques/
+
+Linux Sound Subsystem Documentation » HD-Audio
+https://kernel.org/doc/html/latest/sound/hd-audio/index.html
+

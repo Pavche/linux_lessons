@@ -1,0 +1,51 @@
+HOW TO CONFIGURE FILE SHARING ON LINUX
+FOR WINDOWS CLIENTS?
+
+Install and configure Samba server.
+
+Where is the config?
+- /etc/samba/smb.conf
+
+How the server will appear in the network
+- parameters: netbios name, workgroup
+
+How will the server connect to the network?
+- parameters: interfaces
+
+What network clients will be allow to use the service?
+- parameters: host allow
+
+How will the server record the evetns from the service?
+- to write to a log file: /var/log/samba/log.%m
+
+What will be the max log size?
+- parameters: max log size
+
+What will be the security level?
+- parameters: security
+
+How will be an user authenticated?
+- by using passwords
+
+Where are the passwords stored?
+- When parameter is "passdb backend = tdbsam"
+  then /var/lib/samba/private/passdb.tdb
+
+How does the browsing of files and directories work?
+- parameters: browseable, path, valid users, writable
+
+How to solve issues on Samba shared which are related to SELinux?
+- Install "SELinux troubleshoot server".
+  Description:
+  """
+  Provides tools to help diagnose SELinux problems. When AVC
+  messages are generated an alert can be generated that will give
+  information about the problem and help track its resolution.
+  Alerts can be configured to user preference. The same tools can
+  be run on existing log files.
+  """
+  
+
+How to set a password for a Samba user?
+- command: smbpasswd -a ${SAMBA_USER}
+

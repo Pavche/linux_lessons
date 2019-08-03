@@ -1,0 +1,9 @@
+Keyboard shortcuts in LibreOffice Draw
+
+1. Graphics object
+    A) Align to left
+    B) Align to right
+    C) Align to center
+    D) Align to top
+    E) Align to bottom
+

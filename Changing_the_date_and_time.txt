@@ -1,0 +1,25 @@
+# Changes to the status of chrony or ntpd will not be immediately noticed by timedatectl. If changes to the configuration or status of these tools is made, enter the following command:
+# systemctl restart systemd-timedated.services
+
+# To change the current time, type the following at a shell prompt as root:
+# timedatectl set-time HH:MM:SS
+# This command updates both the system time and the hardware clock. The result it is similar to using both the date --set and hwclock --systohc commands.
+
+# To change the current date, type the following at a shell prompt as root:
+# timedatectl set-time YYYY-MM-DD
+# Changing the date without specifying the current time results in setting the time to 00:00:00.
+
+# To list all available time zones, type the following at a shell prompt:
+# timedatectl list-timezones
+
+# To change the currently used time zone, type as root:
+# timedatectl set-timezone time_zone
+
+# To change the time zone to Europe/Prague, type as root:
+# timedatectl set-timezone Europe/Prague
+
+# To enable or disable NTP, type the following at a shell prompt as root:
+# timedatectl set-ntp boolean
+
+# To enable automatic synchronization of the system clock with a remote server, type:
+# timedatectl set-ntp yes

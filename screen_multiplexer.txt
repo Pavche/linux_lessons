@@ -1,0 +1,34 @@
+How to start a script for changing network settings on a remote machine?
+6/25/2017
+In this scenario we connect to a remote machine via SSH. An automated test from a bash script is started. The script changes the settings of several network interfaces where the SSH connection is disrupted. For example automated tests for NetworkManager.
+
+Then how to see what happens on the remote machine?
+How to see results from the tests.
+
+DETACHED CONSOLE SESSIONS
+One solution is to use software for screen multiplexing - screen.
+Before the execution of the script, start the screen multiplexer.
+From it, create a console session and give it a name. The session's type should be "detached".
+screen -S <session name>
+
+Be prepared to detach the console session with key strokes:
+Ctrl+A, D
+
+Start the script.
+Detach the console session.
+
+Event if changes in network settings interrupt the SSH connection to the remote machine, script's execution continues.
+
+Reconnecting to the remote host requires at least one active network interface which is reachable via SSH.
+When you log to the remote host again, attach the console session you've detached before. Use the command:
+screen -r <session name>
+
+See how the script has completed its execution.
+
+To list sessions in detached state:
+screen -ls
+
+REMOTE CONNECTIONS VIA SERIAL CONSOLE
+Another solution is to keep a remote uninterruptable connection via a serial port. This is more specific and conditions should be prepared in advance.
+See: How to connect to a host that refuses SSH connections?
+https://docs.engineering.redhat.com/display/DESKTOPQE/Team+Wiki+for+DesktopQE#TeamWikiforDesktopQE-HowtoconnecttoahostthatrefusesSSHconnections?

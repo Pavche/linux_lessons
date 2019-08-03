@@ -1,0 +1,13 @@
+Ahoj Ondrej,
+Testuji gnome-control-center pod budouci RHEL 8.0.
+Pouzival jsem prikaz na hledani, ktery program je vychozim prohlizecem.
+Napriklad:
+gvfs-mime --query x-scheme-handler/http
+
+Vim, ze byla zmena, ale nenasel jsem ji.
+Znam prikaz na zjistovani weboveho prohlizece pod Fedorou 28/29 nebo RHEL 8.0?
+Dekuji predem.
+
+
+gio mime x-scheme-handler/http
+

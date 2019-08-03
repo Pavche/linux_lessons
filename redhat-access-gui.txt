@@ -1,0 +1,24 @@
+Main reason = primary idea
+search for answers to a question, solutions to a problem, and information sources.
+
+Why should I use the tool?
+
+
+When should I use the tool?
+
+
+How do I use the tool?
+You need to have an active account on the Red Hat Customer Portal.
+Install the tool:
+sudo yum install -y redhat-access-gui
+Log in the Red Hat Customer Portal.
+The tools allows:
+- keyword search in the knowlegebase
+- search by error codes
+- search by line from a log file
+
+Exaperiance from using the tool
+
+Documentation about the tool
+
+kernel-3.10.0-514.el7.x86_64
